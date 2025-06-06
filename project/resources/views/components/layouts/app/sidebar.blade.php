@@ -14,14 +14,22 @@
             <flux:navlist variant="outline">
                 <flux:navlist.group :heading="__('Platform')" class="grid">
 
-                <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
-                <flux:navlist.item icon="" :href="route('payment')" :current="request()->routeIs('payment')" wire:navigate>{{ __('Payment') }}</flux:navlist.item>
-                <flux:navlist.item icon="" :href="route('payment')" :current="request()->routeIs('payment')" wire:navigate>{{ __('Payment') }}</flux:navlist.item>
-                <flux:navlist.item icon="" :href="route('payment')" :current="request()->routeIs('payment')" wire:navigate>{{ __('Payment') }}</flux:navlist.item>
-                <flux:navlist.item icon="" :href="route('payment')" :current="request()->routeIs('payment')" wire:navigate>{{ __('Payment') }}</flux:navlist.item>
-                <flux:navlist.item icon="" :href="route('payment')" :current="request()->routeIs('payment')" wire:navigate>{{ __('Payment') }}</flux:navlist.item>
-                <flux:navlist.item icon="" :href="route('payment')" :current="request()->routeIs('payment')" wire:navigate>{{ __('Payment') }}</flux:navlist.item>
+                <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Home') }}</flux:navlist.item>
+                <flux:navlist.item icon="user" :href="route('suppliers')" :current="request()->routeIs('suppliers')" wire:navigate icon:trailing="plus">{{ __('Suppliers') }}</flux:navlist.item>
+                <flux:navlist.item icon="building-storefront" :href="route('budget')" :current="request()->routeIs('budget')" wire:navigate icon:trailing="plus">{{ __('Budget') }}</flux:navlist.item>
+                <flux:navlist.item icon="document-chart-bar" :href="route('chart')" :current="request()->routeIs('chart')" wire:navigate icon:trailing="plus">{{ __('Chart of Accounts') }}</flux:navlist.item>
+                <flux:navlist.item icon="queue-list" :href="route('u-r-a')" :current="request()->routeIs('u-r-a')" wire:navigate icon:trailing="plus">{{ __('URA Exemption List') }}</flux:navlist.item>
+                <flux:navlist.item icon="banknotes" :href="route('payment')" :current="request()->routeIs('payment')" wire:navigate icon:trailing="plus">{{ __('Payment') }}</flux:navlist.item>
+                <flux:navlist.item icon="tag" :href="route('category')" :current="request()->routeIs('category')" wire:navigate icon:trailing="plus">{{ __('Category List') }}</flux:navlist.item>
+                <flux:navlist.item icon="command-line" :href="route('audit')" :current="request()->routeIs('audit')" wire:navigate>{{ __('Audit Trial') }}</flux:navlist.item>
+                <flux:navlist.item icon="arrow-path-rounded-square" :href="route('exchange')" :current="request()->routeIs('exchange')" wire:navigate>{{ __('Exchange Rate') }}</flux:navlist.item>
+                <flux:navlist.item icon="identification" :href="route('nature')" :current="request()->routeIs('nature')" wire:navigate>{{ __('Nature of Payment Rate') }}</flux:navlist.item>
+                <flux:navlist.item icon="users" :href="route('users')" :current="request()->routeIs('users')" wire:navigate icon:trailing="plus">{{ __('Users') }}</flux:navlist.item>
+                <flux:navlist.item icon="user-plus" :href="route('rights')" :current="request()->routeIs('rights')" wire:navigate>{{ __('User Rights & Priveleges') }}</flux:navlist.item>
+                <flux:navlist.item icon="arrow-down-circle" :href="route('role')" :current="request()->routeIs('role')" wire:navigate icon:trailing="plus">{{ __('User role') }}</flux:navlist.item>
+                <flux:navlist.item icon="clipboard-document-check" :href="route('approval')" :current="request()->routeIs('approval')" wire:navigate icon:trailing="plus">{{ __('Approval Level') }}</flux:navlist.item>
                 
+       
 
 
                 </flux:navlist.group>
@@ -30,15 +38,7 @@
 
             <flux:spacer />
 
-            <flux:navlist variant="outline">
-                <flux:navlist.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
-                {{ __('Repository') }}
-                </flux:navlist.item>
-
-                <flux:navlist.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
-                {{ __('Documentation') }}
-                </flux:navlist.item>
-            </flux:navlist>
+            
 
             <!-- Desktop User Menu -->
             <flux:dropdown position="bottom" align="start">
