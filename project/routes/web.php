@@ -38,7 +38,12 @@ use App\Livewire\Reversal;
 use App\Livewire\Staff;
 use App\Livewire\Staffpayment;
 use App\Livewire\Gl;
-
+use App\Livewire\Division;
+use App\Livewire\Auth\AdminLogin;
+use App\Livewire\Auth\Login;
+use App\Livewire\Admin\Dashboard;
+use App\Livewire\Admin;
+use App\Livewire\Admin\Dashboard as AdminDashboard;
 
 
 Route::get('/', function () {
@@ -54,6 +59,8 @@ Route::get('newpayment', Newpayment::class)->name('newpayment');
 //Reject
 Route::get('rejected', Rejected::class)->name('rejected');
 
+//division
+Route::get('division', Division::class)->name('division');
 //Draft
 Route::get('draft', Draft::class)->name('draft');
 
@@ -163,6 +170,56 @@ Route::get('vat-services', VatServices::class)->name('vat-services');
 //Reversal
 Route::get('reversal', Reversal::class)->name('reversal');
 
+//Amin
+Route::get('admin', Admin::class)->name('admin');
+
+//Admin
+
+// Route::get('/login', Login::class)->middleware('guest')->name('login');
+// Route::get('/admin/login', AdminLogin::class)->middleware('guest:admin')->name('admin.login');
+// Route::get('/dashboard', \App\Livewire\Admin\Dashboard::class)->middleware('auth')->name('dashboard');
+// Route::get('/admin/dashboard', Dashboard::class)->middleware('auth:admin')->name('admin.dashboard');
+// Route::post('/logout', function () {
+//     if (auth()->guard('admin')->check()) {
+//         auth()->guard('admin')->logout();
+//     } else {
+//         auth()->logout();
+//     }
+//     return redirect('/');
+// })->name('logout');
+
+Route::get('/login', Login::class)
+    ->middleware('guest')
+    ->name('login');
+
+Route::get('/admin/login', AdminLogin::class)
+    ->middleware('guest:admin')
+    ->name('admin.login');
+
+Route::get('/dashboard', Dashboard::class)
+    ->middleware('auth')
+    ->name('dashboard');
+
+Route::get('/admin/dashboard', AdminDashboard::class)
+    ->middleware('auth:admin')
+    ->name('admin.dashboard');
+
+Route::post('/logout', function () {
+    if (auth()->guard('admin')->check()) {
+        auth()->guard('admin')->logout();
+    } else {
+        auth()->guard('web')->logout();
+    }
+
+    session()->invalidate();
+    session()->regenerateToken();
+
+    return redirect('/');
+})->name('logout');
+
+
+
+//user
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
