@@ -75,7 +75,7 @@
 
                 <a href="{{ route('division') }}" class="flex flex-col items-center justify-center p-4 rounded-lg bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 hover:bg-orange-200 dark:hover:bg-orange-900 transition-colors duration-200 group quick-action-hover">
                     <svg class="w-10 h-10 mb-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12A10 10 0 002 12c0 5.523 4.477 10 10 10a10 10 0 0010-10zm-9-4a9 9 0 00-9 9c0 4.97 4.03 9 9 9s9-4.03 9-9a9 9 0 00-9-9z"/></svg>
-                    <span class="font-medium text-center text-sm">Division</span>
+                    <span class="font-medium text-center text-sm">Rejected</span>
                 </a>
             </div>
         </div>

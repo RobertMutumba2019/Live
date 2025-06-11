@@ -28,6 +28,7 @@
                 <flux:navlist.item icon="user-plus" :href="route('rights')" :current="request()->routeIs('rights')" wire:navigate>{{ __('User Rights & Priveleges') }}</flux:navlist.item>
                 <flux:navlist.item icon="arrow-down-circle" :href="route('role')" :current="request()->routeIs('role')" wire:navigate icon:trailing="plus">{{ __('User role') }}</flux:navlist.item>
                 <flux:navlist.item icon="clipboard-document-check" :href="route('approval')" :current="request()->routeIs('approval')" wire:navigate icon:trailing="plus">{{ __('Approval Level') }}</flux:navlist.item>
+                <flux:navlist.item icon="clipboard-document-check" :href="route('kisasi')" :current="request()->routeIs('kisasi')" wire:navigate icon:trailing="plus">{{ __('Form Level') }}</flux:navlist.item>
                 
        
 

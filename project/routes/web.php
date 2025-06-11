@@ -38,13 +38,15 @@ use App\Livewire\Reversal;
 use App\Livewire\Staff;
 use App\Livewire\Staffpayment;
 use App\Livewire\Gl;
+use App\Livewire\Kisasi;
 use App\Livewire\Division;
 use App\Livewire\Auth\AdminLogin;
 use App\Livewire\Auth\Login;
 use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin;
 use App\Livewire\Admin\Dashboard as AdminDashboard;
-
+use App\Livewire\Admin\Locate;
+use App\Livewire\Admin\Current;
 
 Route::get('/', function () {
     return view('welcome');
@@ -170,23 +172,12 @@ Route::get('vat-services', VatServices::class)->name('vat-services');
 //Reversal
 Route::get('reversal', Reversal::class)->name('reversal');
 
-//Amin
-Route::get('admin', Admin::class)->name('admin');
+//kisasi
+Route::get('kisasi', Kisasi::class)->name('kisasi');
 
 //Admin
 
-// Route::get('/login', Login::class)->middleware('guest')->name('login');
-// Route::get('/admin/login', AdminLogin::class)->middleware('guest:admin')->name('admin.login');
-// Route::get('/dashboard', \App\Livewire\Admin\Dashboard::class)->middleware('auth')->name('dashboard');
-// Route::get('/admin/dashboard', Dashboard::class)->middleware('auth:admin')->name('admin.dashboard');
-// Route::post('/logout', function () {
-//     if (auth()->guard('admin')->check()) {
-//         auth()->guard('admin')->logout();
-//     } else {
-//         auth()->logout();
-//     }
-//     return redirect('/');
-// })->name('logout');
+
 
 Route::get('/login', Login::class)
     ->middleware('guest')
@@ -199,6 +190,13 @@ Route::get('/admin/login', AdminLogin::class)
 Route::get('/dashboard', Dashboard::class)
     ->middleware('auth')
     ->name('dashboard');
+
+Route::prefix('admin')->name('admin.')
+->middleware('auth:admin')->group(function () { // Added middleware here
+    // Route for Location/Division Management
+    Route::get('/locate', Locate::class)->name('locate');
+    Route::get('/current', Current::class)->name('current'); // Use LocationManagement
+});
 
 Route::get('/admin/dashboard', AdminDashboard::class)
     ->middleware('auth:admin')
